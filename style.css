@@ -28,6 +28,62 @@ body {
     to { transform: translateY(-500px); }
 }
 
+/* Kalpler efekti */
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hearts::before,
+.hearts::after {
+    content: "❤️";
+    position: absolute;
+    font-size: 25px;
+    opacity: 0.8;
+    animation: floatHearts 6s linear infinite;
+}
+
+.hearts::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.hearts::after {
+    left: 70%;
+    animation-delay: 2s;
+}
+
+/* Ek kalpler */
+.hearts span {
+    position: absolute;
+    font-size: 20px;
+    animation: floatHearts 7s linear infinite;
+    opacity: 0.7;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-delay: 1s; }
+.hearts span:nth-child(2) { left: 40%; animation-delay: 3s; }
+.hearts span:nth-child(3) { left: 60%; animation-delay: 5s; }
+.hearts span:nth-child(4) { left: 80%; animation-delay: 2.5s; }
+.hearts span:nth-child(5) { left: 50%; animation-delay: 4.2s; }
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
 /* Mektup kutusu */
 .card {
     width: 60%;
